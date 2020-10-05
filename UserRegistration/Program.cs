@@ -5,6 +5,7 @@ namespace UserRegistration
 {
     class Program
     {
+        static string nameRegex = "^([A-Z][a-z]*).{3,}$";
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to User Registration Program!");
@@ -18,15 +19,33 @@ namespace UserRegistration
             {
                 Console.Write("1. Enter First Name : ");
                 var firstName = Console.ReadLine();
-                Regex regex = new Regex("^([A-Z][a-z]*).{3,}$");
+                Regex regex = new Regex(nameRegex);
 
                 if (regex.IsMatch(firstName))
                 {
-                    Console.WriteLine("First Name is valid !");
+                    valid = true;
+                    ValidateLastName();
+                }
+                else
+                    Console.WriteLine("First Name is not valid ! \n");
+            }
+        }
+
+        public static void ValidateLastName()
+        {
+            bool valid = false;
+            while (!valid)
+            {
+                Console.Write("2. Enter Last Name : ");
+                var firstName = Console.ReadLine();
+                Regex regex = new Regex(nameRegex);
+
+                if (regex.IsMatch(firstName))
+                {
                     valid = true;
                 }
                 else
-                    Console.WriteLine("First Name is not valid !");
+                    Console.WriteLine("Last Name is not valid ! \n");
             }
         }
     }
