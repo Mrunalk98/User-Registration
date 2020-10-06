@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 
@@ -34,10 +35,15 @@ namespace UserRegistration
             Regex regex = new Regex(pattern);
             if (value.Length < 8)
                 Console.WriteLine("Password must have atleast 8 characters");
-            else if (regex.IsMatch(".*[a-z].*"))
+            if (!value.Any(char.IsUpper))
+            {
+                Console.WriteLine("Password must have atleast one uppercase letter");
+            }
+            if (!value.Any(char.IsLower))
             {
                 Console.WriteLine("Password must have atleast one lowercase letter");
             }
+            
         }
     }
 }
