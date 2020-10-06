@@ -43,7 +43,8 @@ namespace UserRegistration
             {
                 Console.WriteLine("Password must have atleast one lowercase letter");
             }
-            
+            if (!value.Any(char.IsDigit))
+                Console.WriteLine("Password must have atleast one digit");
         }
     }
 }
