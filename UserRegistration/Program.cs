@@ -8,7 +8,7 @@ namespace UserRegistration
         static string namePattern = "^([A-Z][a-z]*).{2,}$";
         static string emailPattern = @"^([a-z0-9.+_-]+@(?:[a-z0-9]+?\.)[a-z0-9.]+)$";
         static string mobilePattern = "^[\\+]{1}[91]{2}\\s{1}[0-9]{10}$";
-        static string passwordPattern = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{7,}$";
+        static string passwordPattern = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*(){}<>:;_+=,./?|]).{7,}$";
 
         static UserValidation validate = new UserValidation();
         static void Main(string[] args)

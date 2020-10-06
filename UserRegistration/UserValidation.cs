@@ -22,7 +22,7 @@ namespace UserRegistration
                 else
                 {                    
                     if (displayText == "Password")
-                        ValidatePassword(value, pattern);
+                        ValidatePassword(value);
                     else
                         Console.WriteLine("Enter a valid " + displayText + " ! \n");
                 }
@@ -30,21 +30,20 @@ namespace UserRegistration
             }
         } 
 
-        private void ValidatePassword(string value, string pattern)
+        private void ValidatePassword(string value)
         {
-            Regex regex = new Regex(pattern);
+            string characters = "^(?=.*[!@#$%^&*(){}<>:;_+=,./?|])";
+            Regex regex = new Regex(characters);
             if (value.Length < 8)
                 Console.WriteLine("Password must have atleast 8 characters");
             if (!value.Any(char.IsUpper))
-            {
                 Console.WriteLine("Password must have atleast one uppercase letter");
-            }
             if (!value.Any(char.IsLower))
-            {
                 Console.WriteLine("Password must have atleast one lowercase letter");
-            }
             if (!value.Any(char.IsDigit))
                 Console.WriteLine("Password must have atleast one digit");
+            if (!regex.IsMatch(value))
+                Console.WriteLine("Password must have atleast one special character");
         }
     }
 }
