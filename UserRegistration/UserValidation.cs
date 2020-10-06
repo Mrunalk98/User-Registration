@@ -16,11 +16,28 @@ namespace UserRegistration
                 Console.Write("Enter " + displayText + " : ");
                 var value = Console.ReadLine();
                 Regex regex = new Regex(pattern);
-                if (regex.IsMatch(value))
+                if (regex.IsMatch(value))   
                     valid = true;
                 else
-                    Console.WriteLine("Enter a valid " + displayText + " ! \n");
+                {                    
+                    if (displayText == "Password")
+                        ValidatePassword(value, pattern);
+                    else
+                        Console.WriteLine("Enter a valid " + displayText + " ! \n");
+                }
+
             }
         } 
+
+        private void ValidatePassword(string value, string pattern)
+        {
+            Regex regex = new Regex(pattern);
+            if (value.Length < 8)
+                Console.WriteLine("Password must have atleast 8 characters");
+            else if (regex.IsMatch(".*[a-z].*"))
+            {
+                Console.WriteLine("Password must have atleast one lowercase letter");
+            }
+        }
     }
 }
