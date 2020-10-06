@@ -5,32 +5,17 @@ namespace UserRegistration
 {
     class Program
     {
+        static string namePattern = "^([A-Z][a-z]*).{2,}$";
+        static string emailPattern = @"^([a-z0-9.+_-]*@(?:[a-z0-9]*?\.)[a-z0-9.]+)$";
+
         static UserValidation validate = new UserValidation();
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to User Registration Program!");
-            validate.ValidateName("First Name");
-            validate.ValidateName("Last Name");
+            validate.ValidateField("First Name", namePattern);
+            validate.ValidateField("Last Name", namePattern);
+            validate.ValidateField("Email ID" , emailPattern);
 
         }
-
-
-        //public static void ValidateLastName()
-        //{
-        //    bool valid = false;
-        //    while (!valid)
-        //    {
-        //        Console.Write("2. Enter Last Name : ");
-        //        var firstName = Console.ReadLine();
-        //        Regex regex = new Regex(nameRegex);
-
-        //        if (regex.IsMatch(firstName))
-        //        {
-        //            valid = true;
-        //        }
-        //        else
-        //            Console.WriteLine("Last Name is not valid ! \n");
-        //    }
-        //}
     }
 }

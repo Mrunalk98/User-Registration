@@ -7,24 +7,20 @@ namespace UserRegistration
 {
     public class UserValidation
     {
-        string nameRegex = "^([A-Z][a-z]*).{2,}$";
-        
-        public void ValidateName(string text)
+
+        public void ValidateField(string displayText, string pattern)
         {
             bool valid = false;
             while (!valid)
             {
-                Console.Write("Enter " + text + " : ");
-                var name = Console.ReadLine();
-                Regex regex = new Regex(nameRegex);
-                if (regex.IsMatch(name))
-                {
+                Console.Write("Enter " + displayText + " : ");
+                var value = Console.ReadLine();
+                Regex regex = new Regex(pattern);
+                if (regex.IsMatch(value))
                     valid = true;
-                }
                 else
-                    Console.WriteLine("Enter a valid " + text + " ! \n");
+                    Console.WriteLine("Enter a valid " + displayText + " ! \n");
             }
         } 
-
     }
 }
