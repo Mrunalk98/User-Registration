@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -8,6 +9,7 @@ namespace UserRegistration
 {
     public class UserValidation
     {
+
 
         public void ValidateField(string displayText, string pattern)
         {
@@ -45,5 +47,7 @@ namespace UserRegistration
             if (!regex.IsMatch(value))
                 Console.WriteLine("Password must have atleast one special character");
         }
+
+        
     }
 }
