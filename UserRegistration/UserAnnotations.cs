@@ -25,7 +25,7 @@ namespace UserRegistration
         /// The phone number.
         /// </value>
         [DataType(DataType.PhoneNumber)]
-        [Phone]
+        [RegularExpression("^[\\+]{1}[91]{2}\\s{1}[0-9]{10}$", ErrorMessage = "Enter a valid mobile number")]
         public string PhoneNumber { get; set; }
 
         /// <summary>
@@ -44,8 +44,8 @@ namespace UserRegistration
         /// <value>
         /// The password.
         /// </value>
-        [StringLength(30, MinimumLength = 8, ErrorMessage = "Password should contain minimum 8 and maximum 30 characters")]
         [DataType(DataType.Password)]
+        [RegularExpression("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*(){}<>:;_+=,./?|]).{7,}$" , ErrorMessage = "\n1.Password must have atleast 8 characters \n2.Password must have atleast one uppercase letter and one lowercase letter \n3.Password must have atleast one digit \n4.Password must have atleast one special character")]
         public string Password { get; set; }
     }
 }
