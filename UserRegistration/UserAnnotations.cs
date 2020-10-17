@@ -35,7 +35,7 @@ namespace UserRegistration
         /// The email identifier.
         /// </value>
         [DataType(DataType.EmailAddress)]
-        [EmailAddress]
+        [RegularExpression(@"^([a-z0-9][a-z0-9.+_-]*@([a-z0-9]([a-z0-9-]*)?\.)+[a-z0-9]([a-z0-9-]*)?)$", ErrorMessage = "Enter a valid Email Id")]
         public string EmailID { get; set; }
 
         /// <summary>

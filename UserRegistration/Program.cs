@@ -16,6 +16,7 @@ namespace UserRegistration
             ValidateEmail();
             ValidateMobileNumber();
             ValidatePassword();
+            Console.WriteLine("\nUser Registration is Successful !");
         }
 
         public static void ValidateName()
@@ -23,7 +24,7 @@ namespace UserRegistration
             bool isValid = false;
             while (!isValid)
             {
-                Console.Write("Enter First Name : ");
+                Console.Write("Enter Name : ");
                 user.Name = Console.ReadLine();
                 isValid = DisplayMessage(isValid);
             }
